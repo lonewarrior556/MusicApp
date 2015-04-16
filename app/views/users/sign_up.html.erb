@@ -1,0 +1,17 @@
+<h1> Sign Up! <h1>
+
+<ul>
+<% while !@errors.to_a.empty? %>
+  <li><%=@errors.pop %></li>
+  <%end %>
+</ul>
+
+<form action="<%=users_signup_url%>" method="POST">
+<p1>email<p1>
+<input type="text" name="user[email]" >
+<br>
+<p1>password</p1>
+<input type="password" name="user[password]">
+<br>
+<input type="submit" value="Submit">
+<form>
