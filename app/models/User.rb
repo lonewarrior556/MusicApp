@@ -4,8 +4,15 @@ class User < ActiveRecord::Base
   validate :password_cannot_be_blank
   attr_accessor :password
 
+  def self.new_session_token
+    SecureRandom::urlsafe_base64(16)
+  end
 
+  def update_session_token!(token)
+    self.update!(session_token: token)
+  end
 
+  
 
 
 
@@ -19,7 +26,7 @@ class User < ActiveRecord::Base
 private
 
   def password_cannot_be_blank
-    if self.password.to_s.length ==0
+    if !self.password.nil? && self.password.length ==0
       errors.add(:password, "cannot be blank")
     end
   end

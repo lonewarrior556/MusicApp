@@ -1,0 +1,6 @@
+<%= render "shared/home_and_error" %>
+
+<% band = @album.band.name %>
+<h1>
+Add <%='aeiouAEIOU'.include?(band[0]) ? 'an' : 'a'%> <%=band%> album!
+</h1>

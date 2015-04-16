@@ -1,0 +1,11 @@
+<%= render "shared/home_and_error" %>
+
+<h1> Songs on <%= @album.title %> </h1>
+<h2>
+<ol>
+  <% @album.tracks.each do |track| %>
+<li> <a href="<%=root_url%>"> <%=track.title%> </a>
+</li>
+  <%end %>
+</ol>
+<h2>

@@ -1,0 +1,14 @@
+<%= render "shared/home_and_error" %>
+
+<h1> All our bands </h1>
+<h2>
+<ol>
+  <% Band.all.each do |band| %>
+<li> <a href="<%=band_url(band.id)%>"> <%=band.name%> </a> </li>
+  <%end %>
+</ol>
+</h2>
+
+
+
+band not here? <a href="<%=band_add_url%>"> add it!<a>

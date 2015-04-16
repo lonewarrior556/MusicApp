@@ -1,5 +1,13 @@
 <h1>Hey! Welcome to my music app<h1>
-
+<%if !logged_in? %>
   <a href="<%=users_signup_url%>"> Sign Up!</a>
   <br><br>
   <a href="<%=users_login_url %>">Log in</a>
+<%else %>
+  <h2> signed in as <%=current_user.email %></h2>
+    <form action="<%=users_login_url%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Logout">
+    <form><br><br>
+    <a href="<%=bands_url%>"> Go to bands! </a>
+<%end %>

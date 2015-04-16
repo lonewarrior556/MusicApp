@@ -11,7 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415232815) do
+ActiveRecord::Schema.define(version: 20150416175236) do
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "band_id",        null: false
+    t.text     "title",          null: false
+    t.boolean  "live_recording"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "albums", ["band_id"], name: "index_albums_on_band_id"
+  add_index "albums", ["title"], name: "index_albums_on_title"
+
+  create_table "bands", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bands", ["name"], name: "index_bands_on_name", unique: true
+
+  create_table "tracks", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "album_id",   null: false
+    t.text     "version"
+    t.text     "lyrics"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tracks", ["album_id"], name: "index_tracks_on_album_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                  null: false
@@ -22,5 +52,6 @@ ActiveRecord::Schema.define(version: 20150415232815) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["session_token"], name: "index_users_on_session_token"
 
 end

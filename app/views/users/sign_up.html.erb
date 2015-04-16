@@ -1,10 +1,8 @@
-<h1> Sign Up! <h1>
+<%= render "shared/home_and_error" %>
 
-<ul>
-<% while !@errors.to_a.empty? %>
-  <li><%=@errors.pop %></li>
-  <%end %>
-</ul>
+<h1> Sign Up! </h1>
+
+
 
 <form action="<%=users_signup_url%>" method="POST">
 <p1>email<p1>
@@ -15,3 +13,6 @@
 <br>
 <input type="submit" value="Submit">
 <form>
+<br><br>
+<li> Already a member? </li>
+<li> <a href="<%=users_login_url%>"> Sign In!</a> </li>

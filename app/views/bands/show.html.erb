@@ -1,0 +1,14 @@
+<%= render "shared/home_and_error" %>
+
+<h1> All albums available for <%= @band.name %> </h1>
+<h2>
+<ol>
+  <% @band.albums.each do |album| %>
+<li> <a href="<%=band_album_url(band_id: @band.id, id: album.id)%>"> <%=album.title%> </a>
+</li>
+  <%end %>
+</ol>
+</h2>
+
+
+Album not here? <a href="<%=new_band_album_url(:band_id => @band.id)%>"> add it!<a>

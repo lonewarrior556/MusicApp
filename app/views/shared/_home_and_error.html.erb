@@ -1,0 +1,7 @@
+<a href="<%=root_url%>"> Home </a> </li>
+<br>
+<ul>
+<% while !@errors.to_a.empty? %>
+  <li><%=@errors.pop %></li>
+  <%end %>
+</ul>

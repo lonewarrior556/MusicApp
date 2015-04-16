@@ -1,4 +1,18 @@
-<h1> Login <h1>
+<%= render "shared/home_and_error" %>
 
 
-  
+<h1> Login </h1>
+
+  <form action="<%=users_login_url%>" method="POST">
+  <p1>email<p1>
+  <input type="text" name="user[email]" >
+  <br>
+  <p1>password</p1>
+  <input type="password" name="user[password]">
+  <br>
+  <input type="submit" value="Submit">
+  <form>
+  <br>
+  <br>
+  <li> Not a member? </li>
+  <li> <a href="<%=users_signup_url%>"> Sign Up!</a> </li>
